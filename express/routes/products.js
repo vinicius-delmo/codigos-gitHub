@@ -1,14 +1,12 @@
 import express from "express";
-const app = express();
+const router = express.Router();
 import { products } from "../database/db.js";
 
-app.use(express.json());
-
-app.get("/items", (req, res) => {
+router.get("/", (req, res) => {
   res.send(products);
 });
 
-app.post("/items", (req, res) => {
+router.post("/", (req, res) => {
   const product = {
     id: products.length + 1,
     name: req.body.name,
@@ -20,14 +18,14 @@ app.post("/items", (req, res) => {
   res.send(product);
 });
 
-app.get("/items/:id", (req, res) => {
+router.get("/:id", (req, res) => {
   const product = products.find((c) => c.id === parseInt(req.params.id));
   if (!product)
     return res.status(404).send("The product with the given id was nos found");
   res.send(product);
 });
 
-app.delete("/items/:id", (req, res) => {
+router.delete("/:id", (req, res) => {
   const product = products.find((c) => c.id === parseInt(req.params.id));
   if (!product)
     return res.status(404).send("The product with the given id was nos found");
@@ -36,7 +34,7 @@ app.delete("/items/:id", (req, res) => {
   res.send(product);
 });
 
-app.put("/items/:id", (req, res) => {
+router.put("/:id", (req, res) => {
   const product = products.find((c) => c.id === parseInt(req.params.id));
   (product.name = req.body.name),
     (product.description = req.body.description),
@@ -44,7 +42,4 @@ app.put("/items/:id", (req, res) => {
   (product.quantity = req.body.quantity), res.send(product);
 });
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Aplicação rodando na porta ${port}`);
-});
+export default router;
