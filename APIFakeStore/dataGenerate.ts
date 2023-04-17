@@ -9,7 +9,7 @@ type Product = {
   description: string;
   image: string;
   category: string;
-  rating: string;
+  rating: { rate: number; count: number };
 };
 
 async function seedProducts() {
@@ -35,7 +35,8 @@ async function seedProducts() {
       description,
       image,
       category_id: categoryId.id,
-      rating,
+      rate: rating.rate,
+      count: rating.count,
     });
   }
 
