@@ -1,5 +1,6 @@
 import productRepository from "../repositories/products";
 import { ProductFromDB, Category, Product } from "../types/index";
+import { makeError } from "../middlewares/errorHandler";
 
 const getAllProducts = async () => {
     const products = await productRepository.selectAllProducts();
@@ -41,7 +42,7 @@ const postProduct = async (product: ProductFromDB) => {
     const { category, rating, ...data } = product;
 
     const categoryId = await productRepository.selectProductCategoryId(category);
-    if (!categoryId[0].id) throw new Error("Categoria não encontrada");
+    if (!categoryId[0].id) throw makeError({ message: "Categoria não existe", status: 400 });
     const formatedProduct = {
       ...data,
       category_id: categoryId[0].id,
