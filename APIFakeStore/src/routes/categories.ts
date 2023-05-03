@@ -8,6 +8,6 @@ categories.get("/:id", categoriesController.show);
 categories.post("/", categoriesController.insert);
 categories.put("/:id", categoriesController.update);
 categories.delete("/:id", categoriesController.remove);
-category.get("/:category", categoriesController.showProducts);
+/* category.get("/:category", categoriesController.showProducts); */
 
 export { categories, category };

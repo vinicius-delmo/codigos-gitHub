@@ -7,7 +7,7 @@ type Name = {
   name: string;
 };
 
-interface ProductsDefault {
+interface ProductDefault {
   id?: number;
   title: string;
   price: number;
@@ -16,7 +16,7 @@ interface ProductsDefault {
   category?: string;
   category_id?: number;
 }
-interface Products extends ProductsDefault {
+interface Product extends ProductDefault {
   rate: number;
   count: number;
 }
@@ -32,4 +32,4 @@ type ProductFromDB = {
   rating: { rate: number; count: number };
 };
 
-export { Category, Name, Products, ProductFromDB };
+export { Category, Name, Product, ProductFromDB };
