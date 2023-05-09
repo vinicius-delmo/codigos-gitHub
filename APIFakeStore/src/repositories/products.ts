@@ -1,4 +1,4 @@
-import { Product, ProductFromDB } from "../types/index";
+import { Product } from "../types/index";
 import knex from "knex";
 import { Knex } from "knex";
 import config from "../../knexfile";
@@ -19,8 +19,8 @@ const selectAllProducts = () =>
     )
     .join("categories", "categories.id", "=", "products.category_id");
 
-const selectProductById = (id: number) =>
-  knexInstance("products")
+const selectProductById = async (id: number) =>
+  await knexInstance("products")
     .select(
       "products.id",
       "products.title",
@@ -37,14 +37,14 @@ const selectProductById = (id: number) =>
 const selectProductCategoryId = async (category: any) =>
   await knexInstance("categories").select("id").where({ name: category });
 
-const insertProduct = (product: Product) =>
-  knexInstance("products").insert(product);
+const insertProduct = async (product: Product) =>
+  await knexInstance("products").insert(product);
 
-const updateProduct = (product: Product) =>
-  knexInstance("products").update(product).where({ id: product.id });
+const updateProduct = async (product: Product) =>
+  await knexInstance("products").update(product).where({ id: product.id });
 
-const deleteProduct = (id: number) =>
-  knexInstance("products").delete().where({ id });
+const deleteProductFromDB = async (id: number) =>
+  await knexInstance("products").delete().where({ id });
 
 export default {
   selectAllProducts,
@@ -52,5 +52,5 @@ export default {
   selectProductCategoryId,
   insertProduct,
   updateProduct,
-  deleteProduct,
+  deleteProductFromDB,
 };

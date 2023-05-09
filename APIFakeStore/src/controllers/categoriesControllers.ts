@@ -51,4 +51,21 @@ const remove = async (req: Request, res: Response, next: NextFunction): Promise<
   }
 };
 
-export default { index, show, insert, update, remove };
+const showProductsByCategory = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<void> => {
+  try {
+    const category: string = req.params.category;
+
+    const productsFromCategory =
+      await categoriesServices.getProductsByCategory(category);
+
+    res.status(200).send(productsFromCategory);
+  } catch (error: any) {
+    next(error);
+  }
+};
+
+export default { index, show, insert, update, remove, showProductsByCategory };

@@ -16,6 +16,7 @@ interface ProductDefault {
   category?: string;
   category_id?: number;
 }
+
 interface Product extends ProductDefault {
   rate: number;
   count: number;

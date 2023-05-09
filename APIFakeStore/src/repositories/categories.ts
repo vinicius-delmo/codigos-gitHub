@@ -24,6 +24,20 @@ const updateCategory = async (name: string, id: number) =>
 const deleteCategory = async (id: number) =>
   await knexInstance("categories").delete().where({ id });
 
+  const selectProductsByCategory = (id: number) =>
+  knexInstance("products")
+    .select(
+      "products.id",
+      "products.title",
+      "products.price",
+      "products.description",
+      "categories.name as category",
+      "products.image",
+      "products.rate",
+      "products.count"
+    )
+    .join("categories", "categories.id", "=", "products.category_id")
+    .where({ "products.category_id": id });
 
 export default {
   selectAllCategoriesNames,
@@ -32,4 +46,5 @@ export default {
   insertCategory,
   updateCategory,
   deleteCategory,
-}
+  selectProductsByCategory,
+};

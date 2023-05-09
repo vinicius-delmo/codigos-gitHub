@@ -1,87 +1,95 @@
 import productRepository from "../repositories/products";
-import { ProductFromDB, Category, Product } from "../types/index";
+import { ProductFromDB } from "../types/index";
 import { makeError } from "../middlewares/errorHandler";
 
 const getAllProducts = async () => {
-    const products = await productRepository.selectAllProducts();
-    const formatedProducts = products.map((product) => ({
-      id: product.id,
-      title: product.title,
-      price: product.price,
-      description: product.description,
-      category: product.category,
-      image: product.image,
-      rating: {
-        rate: product.rate,
-        count: product.count,
-      },
-    }));
-    return formatedProducts;
-  } 
+  const products = await productRepository.selectAllProducts();
+  const formatedProducts = products.map((product) => ({
+    id: product.id,
+    title: product.title,
+    price: product.price,
+    description: product.description,
+    category: product.category,
+    image: product.image,
+    rating: {
+      rate: product.rate,
+      count: product.count,
+    },
+  }));
+  return formatedProducts;
+};
 
 const getProductById = async (id: number) => {
-    const product = await productRepository.selectProductById(id);
-    const formatedProducts = product.map((product) => ({
-      id: product.id, 
-      title: product.title,
-      price: product.price,
-      description: product.description,
-      category: product.category,
-      image: product.image,
-      rating: {
-        rate: product.rate,
-        count: product.count,
-      },
-    }));
-    if (!product.length) throw new Error("Produto não encontrado");
-    return formatedProducts[0];
-  } 
+  const product = await productRepository.selectProductById(id);
+  const formatedProducts = product.map((product) => ({
+    id: product.id,
+    title: product.title,
+    price: product.price,
+    description: product.description,
+    category: product.category,
+    image: product.image,
+    rating: {
+      rate: product.rate,
+      count: product.count,
+    },
+  }));
+  if (!product.length) throw new Error("Product not found");
+  return formatedProducts[0];
+};
 
 const postProduct = async (product: ProductFromDB) => {
+  const { category, rating, ...data } = product;
 
-    const { category, rating, ...data } = product;
+  const categoryId = await productRepository.selectProductCategoryId(category);
+  if (!categoryId[0].id)
+    throw makeError({ message: "Category does not exist", status: 400 });
+  const productId = await productRepository.insertProduct({
+    category_id: categoryId[0].id,
+    ...rating,
+    ...data,
+  });
 
-    const categoryId = await productRepository.selectProductCategoryId(category);
-    if (!categoryId[0].id) throw makeError({ message: "Categoria não existe", status: 400 });
-    const formatedProduct = {
-      ...data,
-      category_id: categoryId[0].id,
-      rate: rating.rate,
-      count: rating.count,
-    };
-    return productRepository.insertProduct(formatedProduct);
-  } 
-  
-  const updateProduct = async (product: any) => {
-    const { category, rating, id, ...data } = product;
-  
+  return {
+    id: productId[0],
+    category,
+    ...data,
+    rating,
+  };
+};
+
+const updateProduct = async (product: any) => {
+  const { category, rating = {}, id, ...data } = product;
+
+  const productToUpdate = {
+    id,
+    ...data,
+    ...rating,
+  };
+
+  if (category) {
     const selectedCategory = await productRepository.selectProductCategoryId(
       category
     );
     const categoryId: number | undefined = selectedCategory[0].id;
-  
+
     if (!categoryId) {
-      throw new Error("Categoria não encontrada");
+      throw new Error("Category not found");
     }
-  
-    const productToInsert = {
-      id,
-      category_id: categoryId,
-      ...data,
-      ...rating,
-    };
-    const insertedProductId = await productRepository.updateProduct(
-      productToInsert
-    );
-  
-    if (!insertedProductId) throw new Error("Produto não encontrado");
-    return product;
-  };
+
+    productToUpdate.category_id = categoryId;
+  }
+
+  const updatedProduct = await productRepository.updateProduct(productToUpdate);
+
+  if (!updatedProduct) throw new Error("Product not found");
+  return product;
+};
 
 const deleteProduct = async (id: number) => {
-  const product = await productRepository.deleteProduct(id);
-  if (!product) throw new Error("Produto não encontrado");
+  const product = await productRepository.deleteProductFromDB(id);
+  if (!product) throw new Error("Product not found");
 };
+
 export default {
   getAllProducts,
   getProductById,

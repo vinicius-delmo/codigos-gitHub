@@ -1,9 +1,11 @@
 import { NextFunction, Request, Response } from "express";
-import { Product } from "../types/index";
 import productsServices from "../service/products";
 
-
-const index = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+const index = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<void> => {
   try {
     const allProducts = await productsServices.getAllProducts();
     res.status(200).send(allProducts);
@@ -12,7 +14,11 @@ const index = async (req: Request, res: Response, next: NextFunction): Promise<v
   }
 };
 
-const show = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+const show = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<void> => {
   try {
     const id: number = parseInt(req.params.id);
     const product = await productsServices.getProductById(id);
@@ -22,7 +28,11 @@ const show = async (req: Request, res: Response, next: NextFunction): Promise<vo
   }
 };
 
-const insert = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+const insert = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<void> => {
   try {
     const { title, price, description, category, image, rating } = req.body;
     const newProduct = {
@@ -42,36 +52,37 @@ const insert = async (req: Request, res: Response, next: NextFunction): Promise<
   }
 };
 
-
-const update = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+const update = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<void> => {
   try {
     const id: number = parseInt(req.params.id);
 
-    const { title, price, description, category, image, rating } = req.body;
+    const data = req.body;
 
-    const product: Product = {
+    const product = {
       id,
-      title,
-      price,
-      category,
-      description,
-      image,
-      rate: rating.rate,
-      count: rating.count,
+      ...data,
     };
-    const addedProduct = await productsServices.updateProduct(product);
+    const updatedProduct = await productsServices.updateProduct(product);
 
-    res.status(201).send(addedProduct);
+    res.status(201).send(updatedProduct);
   } catch (error: any) {
     next(error);
   }
 };
 
-const remove = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+const remove = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<void> => {
   try {
     const id: number = parseInt(req.params.id);
     const deleteProduct = await productsServices.deleteProduct(id);
-    res.status(200).json({ message: "Produto deletado com sucesso" });
+    res.status(200).json({ message: "Product successfully deleted" });
   } catch (error: any) {
     next(error);
   }
