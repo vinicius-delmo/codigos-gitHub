@@ -1,0 +1,36 @@
+.cardContainer {
+  font-family: "Poppins", sans-serif;
+  width: 256px;
+}
+
+.cardContainer h1 {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.cardContainer p {
+  font-size: 18px;
+  margin-bottom: 24px;
+  width: 196px;
+  color: #c0c0c0;
+}
+
+.cardContainer button {
+  width: 168px;
+  height: 51px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 12px 24px;
+  gap: 10px;
+  background: #f7aa35;
+  border-radius: 8px;
+  border: none;
+
+  color: #fff;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+}

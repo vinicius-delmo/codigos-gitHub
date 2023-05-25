@@ -1,0 +1,21 @@
+#productDetailsContainer {
+  height: 674px;
+  display: flex;
+}
+
+#productDetailsLeft {
+  width: 30%;
+}
+
+#TitlePicture {
+  margin: 83px 0px 0px 70px;
+  width: 60%;
+}
+
+#productDetailsRight {
+  width: 70%;
+}
+
+#DetailsProduct {
+  margin: 83px 0px 20px;
+}

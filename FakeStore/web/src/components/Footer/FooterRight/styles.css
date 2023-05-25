@@ -1,0 +1,23 @@
+.informationsBlock {
+  color: white;
+  width: 110px;
+  height: 180px;
+  text-align: start;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+}
+
+.informationsBlock h3 {
+  margin-bottom: 24px;
+}
+
+.informationsBlock div {
+  margin-top: 24px;
+  font-weight: 400;
+  color: #c0c0c0;
+}
+
+.informationsBlock div:hover {
+  color: #ffffff;
+  cursor: pointer;
+}

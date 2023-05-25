@@ -1,0 +1,28 @@
+#AboutCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+  gap: 12px;
+  text-align: center;
+  width: 400px;
+  height: 213px;
+}
+
+#AboutCard h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+#AboutCard p {
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #c0c0c0;
+}
+#AboutCard img {
+  width: 40px;
+  height: auto;
+  margin-bottom: 52px;
+}

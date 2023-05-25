@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.containerBestSelling {
+  height: 532px;
+  width: 100vw;
+  display: flex;
+  
+}
+
+ #divLeft {
+  width: 30%;
+}
+
+#divRight {
+  width: 100%;
+} 
+
+#divRightProduct {
+  display: flex;
+  gap: 48px;
+  margin-top: 48px;
+  justify-content: space-evenly;
+}
+
+#divLeftProduct {
+  margin-top: 47px;
+  margin-left: 94px;
+}

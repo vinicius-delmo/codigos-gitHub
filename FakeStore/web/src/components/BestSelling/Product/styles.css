@@ -1,0 +1,19 @@
+#productContainer h3 {
+  font-size: 18px;
+  margin: 12px 0px 12px 0px;
+  font-weight: 500;
+  width: 300px;
+}
+
+#productContainer p {
+  font-size: 18px;
+  margin-bottom: 24px;
+  width: 196px;
+  color: #c0c0c0;
+  font-weight: 500;
+}
+
+#productContainer img {
+  width: 300px;
+  height: 363px;
+}

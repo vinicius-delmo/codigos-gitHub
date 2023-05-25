@@ -1,0 +1,32 @@
+#rating {
+  width: 800px;
+  border-top: solid 1px;
+  border-bottom: solid 1px;
+  padding: 7px 0px 10px 0px
+}
+
+#ratingBottom {
+  display: flex;
+  gap: 32px;
+}
+
+#rating h2 {
+  margin: 0;
+  font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #0F798D;
+}
+
+#ratingCount{
+  margin: 0;
+  font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 21px;
+    color: #0F798D;
+}
+

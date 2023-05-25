@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+footer {
+  width: 100vw;
+  height: 400px;
+  background-color: #802c6e;
+  display: flex;
+}
+
+#socialMediaAndDescription {
+  width: 100%;
+}
+
+#footerLeft {
+  margin-top: 48px;
+  margin-left: 97.5px;
+}
+
+#moreInformations {
+  width: 100%;
+}
+
+#footerRight {
+  margin-top: 48px;
+  margin-right: 97.5px;
+  display: flex;
+  gap: 48px;
+  justify-content: flex-end;
+}
