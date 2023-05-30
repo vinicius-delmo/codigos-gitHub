@@ -31,3 +31,49 @@ footer {
   gap: 48px;
   justify-content: flex-end;
 }
+
+/* Tablets Maiores */
+@media (min-width: 768px) and (max-width: 1023px) {
+  #footerLeft {
+    margin-left: 20px;
+  }
+  #footerRight {
+    margin-right: 20px;
+  }
+}
+
+/* Tablets Menores */
+@media (min-width: 481px) and (max-width: 767px) {
+  #footerLeft {
+    margin-left: 10px;
+  }
+  #footerRight {
+    margin-right: 10px;
+  }
+  footer {
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+  }
+}
+
+/* Smartphones */
+@media (max-width: 480px) {
+  #footerLeft {
+    display: flex;
+  }
+  #footerRight {
+    margin-right: 10px;
+    margin-bottom: 20px;
+    margin-top: 100px;
+    flex-direction: column;
+    width: auto;
+
+  }
+  footer {
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    
+  }
+}

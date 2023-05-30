@@ -1,11 +1,11 @@
 import "./styles.css";
 
-const AboutCard = () => {
+const AboutCard = ({icon, title, subtitle}: any) => {
   return (
     <div id="AboutCard">
-      <img src="./About/plants.svg" alt="" />
-      <h1>Large Assortment</h1>
-      <p>we offer many different types of products with fewer variations in each category.</p>
+      <img src={icon} alt="" />
+      <h1>{title}</h1>
+      <p>{subtitle}</p>
     </div>
   );
 };

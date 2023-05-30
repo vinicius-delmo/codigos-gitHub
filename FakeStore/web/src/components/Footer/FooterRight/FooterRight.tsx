@@ -5,9 +5,11 @@ const FooterRight = (props: any) => {
   return (
     <div className="informationsBlock">
       <h3>{title}</h3>
-      <div>{firstSubTitle}</div>
+      <a href="/empty">
+      <div>{firstSubTitle}  </div>
       <div>{secondSubTitle}</div>
       <div>{thirdSubTitle}</div>
+      </a>
     </div>
   
   )

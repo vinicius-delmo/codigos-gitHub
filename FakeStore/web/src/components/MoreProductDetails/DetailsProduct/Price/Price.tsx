@@ -1,11 +1,11 @@
 import "./styles.css";
 
-const Price = () => {
+const Price = ({title, subtitle, description}: any) => {
   return (
     <div id="price">
-      <h1><small><sup>R$</sup></small>391,00</h1>
-      <h2>Descrição do produto</h2>
-      <pre><code><p>    Uma plantinha verde que irá alegrar sua casa</p></code></pre>
+      <h1>{title}</h1>
+      <h2>{subtitle}</h2>
+      <p>{'\u00A0'}{'\u00A0'}{description}</p>
       
     </div>
   );

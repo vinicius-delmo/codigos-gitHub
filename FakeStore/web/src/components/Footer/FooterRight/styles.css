@@ -1,6 +1,6 @@
 .informationsBlock {
   color: white;
-  width: 110px;
+  width: auto;
   height: 180px;
   text-align: start;
   font-family: "Poppins", sans-serif;
@@ -20,4 +20,16 @@
 .informationsBlock div:hover {
   color: #ffffff;
   cursor: pointer;
+  text-decoration: underline;
+}
+
+.informationsBlock a {
+  text-decoration: none;
+}
+
+
+@media (max-width: 480px) {
+  .informationsBlock {
+    text-align: center
+  }
 }

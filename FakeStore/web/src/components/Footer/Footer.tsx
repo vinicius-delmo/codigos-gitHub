@@ -14,6 +14,7 @@ const Footer = () => {
 
       <div id="moreInformations">
         <div id="footerRight">
+          
         <div className="footerColumn">
           <FooterRight
             title="Information"

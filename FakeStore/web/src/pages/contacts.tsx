@@ -1,8 +1,11 @@
-import React from 'react'
+import EmptyState from "../components/EmptyState/EmptyState"
+
 
 const contacts = () => {
   return (
-    <div>contacts</div>
+    <>
+    <EmptyState/>
+    </>
   )
 }
 

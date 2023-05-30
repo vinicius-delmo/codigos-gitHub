@@ -1,6 +1,6 @@
 import "./styles.css";
 
-const Details = () => {
+const Details = ({category, rate, count}:any) => {
   return (
     <div id="Details">
       {/* Alterar para grid ou tabela */}
@@ -13,42 +13,26 @@ const Details = () => {
       <table>
   <tr>
     <td>
-      <h1>Marca</h1>
+      <h1>Category</h1>
     </td>
     <td>
-      <p>Marca</p>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <h1>Materiais</h1>
-    </td>
-    <td>
-      <p>Materiais</p>
+      <p>{category}</p>
     </td>
   </tr>
   <tr>
     <td>
-      <h1>Dimensões do produto</h1>
+      <h1>Rate</h1>
     </td>
     <td>
-      <p>Dimensões do produto</p>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <h1>Tipo de montagem</h1>
-    </td>
-    <td>
-      <p>Tipo de montagem</p>
+      <p>{rate}</p>
     </td>
   </tr>
   <tr>
     <td>
-      <h1>Tipo de acabamento</h1>
+      <h1>Count</h1>
     </td>
     <td>
-      <p>Tipo de acabamento</p>
+      <p>{count}</p>
     </td>
   </tr>
 </table>

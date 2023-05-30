@@ -1,6 +1,6 @@
 #price {
   width: 800px;
-
+  border-top: solid 1px;
   border-bottom: solid 1px;
   padding: 7px 0px 56px 0px;
 }

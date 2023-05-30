@@ -1,0 +1,32 @@
+.emptyStateContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 75px 0px 75px 0px;
+}
+.emptyStateContainer img {
+  margin-bottom: 24px;
+}
+
+.emptyStateContainer h1 {
+  margin-bottom: 24px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 48px;
+  color: #802c6e;
+}
+
+.emptyStateContainer p {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  color: rgba(30, 30, 30, 0.5);
+}
+
+.emptyStateContainer a {
+    color: #f7aa35;
+}

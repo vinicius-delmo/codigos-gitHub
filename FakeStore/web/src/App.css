@@ -1,5 +1,12 @@
-body {
+#root{
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+body, html {
   overflow-x: hidden;
+  height: 100%;
 }
 
 @media (prefers-reduced-motion: no-preference) {

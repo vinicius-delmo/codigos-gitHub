@@ -1,5 +1,5 @@
 #categoriesContainer {
-  height: 977px;
+  height: auto;
 }
 
 #categorieTitle {
@@ -8,6 +8,13 @@
 }
 
 #categoriesCards {
-  display: flex;
   justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.cardCategory {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

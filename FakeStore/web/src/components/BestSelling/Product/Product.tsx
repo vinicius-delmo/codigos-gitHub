@@ -19,7 +19,7 @@ const Product = (props: Props) => {
   };
 
   return (
-    <Link to={`products/${id}`} style={linkStyle}>
+    <Link to={`/product/${id}`} style={linkStyle}>
       <div id="productContainer">
         <img src={img} alt="" />
         <h3>{title}</h3>

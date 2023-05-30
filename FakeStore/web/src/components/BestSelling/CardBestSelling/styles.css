@@ -34,3 +34,20 @@
   font-size: 18px;
   line-height: 27px;
 }
+
+.cardContainer button:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.cardContainer button img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.cardContainer button img:hover {
+  transform: translateX(10px);
+}
+
+.cardContainer a {
+  text-decoration: none;
+}

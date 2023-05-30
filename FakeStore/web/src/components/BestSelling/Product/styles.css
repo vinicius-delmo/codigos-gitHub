@@ -1,3 +1,6 @@
+#productContainer {
+  width: 300px;
+}
 #productContainer h3 {
   font-size: 18px;
   margin: 12px 0px 12px 0px;
@@ -16,4 +19,7 @@
 #productContainer img {
   width: 300px;
   height: 363px;
+}
+#productContainer img:hover {
+  transform: scale(1.1);
 }

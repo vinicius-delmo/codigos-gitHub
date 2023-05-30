@@ -1,10 +1,10 @@
 import "./styles.css";
 
-const TitlePicture = () => {
+const TitlePicture = ({title, img}:any) => {
   return (
     <div id="titlePicture">
-      <h1>Uma plantinha verde</h1>
-      <img src="/BestSelling/plant.png" alt="" />
+      <h1>{title}</h1>
+      <img src={img} alt={title} />
     </div>
   );
 };

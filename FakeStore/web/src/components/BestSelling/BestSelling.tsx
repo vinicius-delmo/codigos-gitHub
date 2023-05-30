@@ -26,25 +26,11 @@ const formatPrice = (price: number) =>
   });
 
 const BestSelling = () => {
+  //JS
   const [products, setProducts] = useState([] as ProductType[]);
 
   useEffect(() => {
     async function getProductsList() {
-      /**
-      try {
-        const response = await fetch("http://localhost:3030/products", {
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-          },
-        });
-        console.log(response, "response");
-        const data = await response.json();
-        console.log(data, "data from API");
-      } catch (error) {
-        console.log(error, "error from API");
-      }
-      */
-
       try {
         const response = await requester("http://localhost:3030/products");
         const [product1, product2, product3] = response.data.filter(
@@ -60,7 +46,7 @@ const BestSelling = () => {
 
     getProductsList();
   }, []);
-
+//html
   return (
     <div className="containerBestSelling">
       <div id="divLeft">

@@ -5,25 +5,26 @@
 }
 
 .containerBestSelling {
-  height: 532px;
+  height: auto;
   width: 100vw;
   display: flex;
-  
+
 }
 
- #divLeft {
-  width: 30%;
+#divLeft {
+  flex: 1;
 }
 
 #divRight {
-  width: 100%;
-} 
+  flex: 3;
+}
 
 #divRightProduct {
   display: flex;
   gap: 48px;
   margin-top: 48px;
   justify-content: space-evenly;
+
 }
 
 #divLeftProduct {
